@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { login } from '../actions/loginActions';
-import Login from '../components/LoginComponent/Login';
+import { login } from '../../actions/loginActions';
+import Login from '../../components/LoginComponent/Login';
 
 
 class LoginContainer extends Component {
@@ -13,6 +13,7 @@ class LoginContainer extends Component {
       password: '',
       error: null
     }
+    console.log(this);
 
     this.handleLogin          = this.handleLogin.bind(this);
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -53,14 +54,21 @@ class LoginContainer extends Component {
 
 
   render() {
-    const { handleLogin, handleUsernameChange, handlePasswordChange} = this;
+    console.log(this.handleUsernameChange);
+    // const { handleLogin, handleUsernameChange, handlePasswordChange} = this;
     return (
       <section>
-        <Login handleLogin={ handleLogin }
-               handleUsernameChange={ handleUsernameChange }
-               handlePasswordChange={ handlePasswordChange }/>
+        <Login handleLogin={ this.handleLogin }
+               handleUsernameChange={ this.handleUsernameChange }
+               handlePasswordChange={ this.handlePasswordChange }/>
       </section>
     )
+  }
+}
+
+function mapPropsToState(state) {
+  return {
+    token: state.login.token
   }
 }
 
@@ -68,4 +76,4 @@ function matchDispatchToProps(dispatch) {
   return bindActionCreators({ login }, dispatch);
 }
 
-export default connect(matchDispatchToProps)(Login)
+export default connect(mapPropsToState, matchDispatchToProps)(Login)

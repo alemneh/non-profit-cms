@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import App from './App';
 import HomePage from './components/HomePageComponent/HomePage';
+import Login from './containers/LoginContainer/Login';
 // import Members from './containers/MemberContainer/MembersPage';
 // import Account from './containers/AccountContainer/AccountPage';
 

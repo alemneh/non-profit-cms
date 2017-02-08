@@ -8,7 +8,7 @@ class NavBarContainer extends Component {
   constructor(props) {
     super(props);
 
-    this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   handleLogout(e) {
@@ -19,7 +19,7 @@ class NavBarContainer extends Component {
 
   render() {
     return (
-      <header>
+      <header >
         <NavBarComponent token={this.props.token}
                       handleLogout={ this.handleLogout }
                     />

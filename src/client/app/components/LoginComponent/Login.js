@@ -6,8 +6,10 @@ const LoginComponent = ({
   handleLogin
 }) => {
 
+  console.log(handleUsernameChange);
+
   return (
-    <form className="form-horizontal">
+    <form onSubmit={ handleLogin }className="form-horizontal">
       <fieldset>
         <legend>Login</legend>
         <div className="form-group">
@@ -25,7 +27,7 @@ const LoginComponent = ({
         <div className="form-group">
           <div className="col-lg-10 col-lg-offset-2">
             <button type="reset" className="btn btn-default">Cancel</button>
-            <button onClick={ handleLogin } type="submit" className="btn btn-primary">Login</button>
+            <button type="submit" className="btn btn-primary">Login</button>
           </div>
         </div>
       </fieldset>
