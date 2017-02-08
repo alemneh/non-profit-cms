@@ -2,6 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/styles.min.css">
     <title>Welkiat-Tegede-CMS</title>
   </head>
   <body>
@@ -9,8 +11,23 @@
 
     </div>
     <script src="./public/bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+      function downloadJSAtOnload() {
+        var element1 = document.createElement("script");
+        var element2 = document.createElement("script");
+        element1.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js";
+        element2.src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js";
+        element2.setAttribute("integrity", "sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa");
+        element2.setAttribute("crossorigin", "anonymous");
+        document.body.appendChild(element1);
+        document.body.appendChild(element2);
+      }
+      if (window.addEventListener)
+        window.addEventListener("load", downloadJSAtOnload, false);
+      else if (window.attachEvent)
+        window.attachEvent("onload", downloadJSAtOnload);
+      else window.onload = downloadJSAtOnload;
+  </script>
   </body>
 </html>

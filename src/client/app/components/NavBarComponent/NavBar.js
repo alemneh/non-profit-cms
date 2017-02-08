@@ -2,11 +2,7 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 
-const NavComponent = ({
-  userId,
-  token,
-  handleLogout
-}) => {
+const NavComponent = ({ token, handleLogout }) => {
 
   const renderNavBarLinks = () => {
     if(token) {
@@ -18,7 +14,7 @@ const NavComponent = ({
             <li><Link to="#">Account</Link></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><Link to="#">Logout</Link></li>
+            <li><Link onClick={ handleLogout }>Logout</Link></li>
           </ul>
         </div>
       )
@@ -58,10 +54,8 @@ const NavComponent = ({
 }
 
 NavComponent.propTypes = {
-  userId: PropTypes.string,
   token: PropTypes.string,
   handleLogout: PropTypes.func.isRequired,
-
 }
 
 export default NavComponent;
