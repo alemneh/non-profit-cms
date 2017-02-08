@@ -13,7 +13,6 @@ class LoginContainer extends Component {
       password: '',
       error: null
     }
-    console.log(this);
 
     this.handleLogin          = this.handleLogin.bind(this);
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -54,7 +53,6 @@ class LoginContainer extends Component {
 
 
   render() {
-    console.log(this.handleUsernameChange);
     // const { handleLogin, handleUsernameChange, handlePasswordChange} = this;
     return (
       <section>
@@ -76,4 +74,4 @@ function matchDispatchToProps(dispatch) {
   return bindActionCreators({ login }, dispatch);
 }
 
-export default connect(mapPropsToState, matchDispatchToProps)(Login)
+export default connect(mapPropsToState, matchDispatchToProps)(LoginContainer)

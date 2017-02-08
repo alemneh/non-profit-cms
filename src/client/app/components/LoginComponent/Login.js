@@ -6,7 +6,6 @@ const LoginComponent = ({
   handleLogin
 }) => {
 
-  console.log(handleUsernameChange);
 
   return (
     <form onSubmit={ handleLogin }className="form-horizontal">
