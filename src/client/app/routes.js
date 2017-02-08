@@ -2,16 +2,16 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import App from './App';
 import HomePage from './components/HomePageComponent/HomePage';
-import Members from './containers/MemberContainer/MembersPage';
-import Account from './containers/AccountContainer/AccountPage';
+// import Members from './containers/MemberContainer/MembersPage';
+// import Account from './containers/AccountContainer/AccountPage';
 
 
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
     <Route path="/login-form"   component={Login}  />
-    <Route path="/members" component={Members} />
-    <Route path="/accounts"  component={Account}  />
+    {/* <Route path="/members" component={Members} />
+    <Route path="/accounts"  component={Account}  /> */}
   </Route>
 );
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { logout } from '../actions/loginActions';
-import NavComponent from '../components/NavBarComponent/NavBar';
+import { logout } from '../../actions/loginActions';
+import NavBarComponent from '../../components/NavBarComponent/NavBar';
 
 class NavBarContainer extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class NavBarContainer extends Component {
   render() {
     return (
       <header>
-        <NavComponent token={this.props.token}
+        <NavBarComponent token={this.props.token}
                       handleLogout={ this.handleLogout }
                     />
       </header>
@@ -38,4 +38,4 @@ function matchDispatchToProps(dispatch) {
   return bindActionCreators({logout}, dispatch);
 }
 
-export default connect(mapPropsToState, matchDispatchToProps)(NavComponent);
+export default connect(mapPropsToState, matchDispatchToProps)(NavBarContainer);

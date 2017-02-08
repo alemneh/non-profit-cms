@@ -41,9 +41,6 @@ export default function(state=initialState, action) {
     case types.LOGOUT: {
       return initialState;
     }
-    case types.TOGGLE_NAVBAR: {
-      return {...state, slideToggleClass: state.slideToggleClass ? '' : 'none' }
-    }
   }
   return state;
 }
