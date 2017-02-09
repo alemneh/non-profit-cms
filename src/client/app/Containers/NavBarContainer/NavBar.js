@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { logout } from '../../actions/loginActions';
@@ -9,6 +10,12 @@ class NavBarContainer extends Component {
     super(props);
 
     this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  componentWillMount() {
+    if(!this.props.token) {
+      browserHistory.push('/login-form');
+    }
   }
 
   handleLogout(e) {

@@ -9,7 +9,7 @@ const MembersListComponent = ({
   const renderMembersList = () => {
     if(members) {
       return members.map((member, index) => {
-        return <Member key={index} member={member} />
+        return <Member key={index} member={member} index={index} />
       })
     }
     return (
@@ -19,7 +19,7 @@ const MembersListComponent = ({
 
   return (
     <section>
-      <div class="list-group">
+      <div className="list-group">
         { renderMembersList() }
     </div>
     </section>

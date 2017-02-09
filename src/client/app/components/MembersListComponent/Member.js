@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react';
 
 
-const MemberComponent = ({ member, handleViewMember }) => {
+const MemberComponent = ({ index, member, handleViewMember }) => {
 
   return (
     <div>
-      <a href="#" class="list-group-item"
+      <a href="#" className="list-group-item"
          onClick={ handleViewMember }
-        >{ member.name }</a>
+        >{ index + 1 }. { member.name }</a>
     </div>
   )
 }

@@ -15,6 +15,7 @@ export function fetchUser(userId, token) {
       dispatch({ type: types.FETCH_USER_REJECTED, payload: err});
     });
   };
+}
 
 export function fetchUsers(token) {
   return function(dispatch) {
