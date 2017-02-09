@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchUsers } from '../../actions/userActions';
-import MembersList from '../../components/MembersListComponent/MembersList';
+import { fetchUsers } from '../actions/userActions';
+import MembersList from '../components/MembersListComponent/MembersList';
 
 class MembersListContainer extends Component {
   constructor(props) {
@@ -19,7 +19,6 @@ class MembersListContainer extends Component {
     const { members } = this.props;
     return (
       <section>
-        <h1>Members</h1>
         <MembersList members={ members } />
       </section>
     )
@@ -28,7 +27,7 @@ class MembersListContainer extends Component {
 
 function mapPropsToState(state) {
   return {
-    members: state.user.users,
+    members: state.user.members,
     token: state.login.token
   }
 }

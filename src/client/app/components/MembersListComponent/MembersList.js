@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Member from './member';
+import Member from '../MemberComponent/Member';
 
 const MembersListComponent = ({
   members,
@@ -12,9 +12,7 @@ const MembersListComponent = ({
         return <Member key={index} member={member} index={index} />
       })
     }
-    return (
-      <div>There are no members. <Link to="/members/add" >Add Members</Link></div>
-    )
+    return;
   }
 
   return (
