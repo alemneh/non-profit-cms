@@ -19,16 +19,17 @@ const NavComponent = ({ token, handleLogout }) => {
         </div>
       )
     }
-    return (
-      <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul className="nav navbar-nav">
-          <li className="active"><Link to="/">Home <span className="sr-only">(current)</span></Link></li>
-        </ul>
-        <ul className="nav navbar-nav navbar-right">
-          <li><Link to="/login-form">Login</Link></li>
-        </ul>
-      </div>
-    )
+    return
+    // (
+    //   <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    //     <ul className="nav navbar-nav">
+    //       <li className="active"><Link to="/">Home <span className="sr-only">(current)</span></Link></li>
+    //     </ul>
+    //     <ul className="nav navbar-nav navbar-right">
+    //       <li><Link to="/login-form">Login</Link></li>
+    //     </ul>
+    //   </div>
+    // )
   }
 
 

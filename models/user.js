@@ -8,6 +8,8 @@ module.exports = function(mongoose, models) {
     name: String,
     password: String,
     admin: {type: Boolean, default: false},
+    isCaller: {type: Boolean, default: false},
+    isBoss: {type: Boolean, default: false},
     payments: [{type: Schema.Types.ObjectId, ref:'Payment' }],
     role: String,
     committee: Boolean,
