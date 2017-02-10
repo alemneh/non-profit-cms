@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const loadState = () => {
   try {
     const serializedState = localStorage.getItem('state');

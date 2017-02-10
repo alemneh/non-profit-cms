@@ -13,7 +13,7 @@ const routes = (
     <IndexRoute component={HomePage} />
     <Route path="/login-form"   component={Login}  />
     <Route path="/members" component={MemberPage} />
-    <Route path="/members/view" component={MembersList} />
+    <Route path="/members-list" component={MembersList} />
 
     {/* <Route path="/accounts"  component={Account}  /> */}
   </Route>
