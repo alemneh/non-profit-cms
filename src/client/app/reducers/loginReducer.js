@@ -29,13 +29,13 @@ export default function(state=initialState, action) {
         userId
       }
     }
-    case types.SIGN_UP: {
+    case types.ADD_USER: {
       return {...state, fetching: true}
     }
-    case types.SIGN_UP_REJECTED: {
+    case types.ADD_USER_REJECTED: {
       return {...state, fetching: false, error: action.payload}
     }
-    case types.SIGN_UP_FULFILLED: {
+    case types.ADD_USER_FULFILLED: {
       return {...state, fetching: false, fetched: true}
     }
     case types.LOGOUT: {

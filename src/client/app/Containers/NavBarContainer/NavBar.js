@@ -37,7 +37,7 @@ class NavBarContainer extends Component {
 
 function mapPropsToState(state) {
   return {
-    token: state.login.state
+    token: state.login.token
   }
 }
 

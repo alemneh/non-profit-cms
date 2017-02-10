@@ -19,15 +19,17 @@ export function login(username, password) {
   };
 }
 
-export function signup(newUser) {
+export function addUser(newUser, token) {
   return function(dispatch) {
-    dispatch({type: types.SIGN_UP});
-    axios.post(process.env.URL + '/signup', newUser)
+    dispatch({type: types.ADD_USER});
+    axios.post(process.env.URL + '/signup', newUser, {
+      headers: { 'token': token}
+    })
       .then((res) => {
-        dispatch({type: types.SIGN_UP_FULFILLED, payload: res.data.message});
+        dispatch({type: types.ADD_USER_FULFILLED, payload: res.data.message});
       })
       .catch((err) => {
-        dispatch({type: types.SIGN_UP_REJECTED, payload: err });
+        dispatch({type: types.ADD_USER_REJECTED, payload: err });
       });
   };
 }

@@ -4,9 +4,10 @@ const UserRoutes= require('../routes/user-routes.js');
 
 module.exports = (userRouter, models) => {
 
-  userRouter.post('/signup', (req, res) => {UserRoutes.signUp(req, res); });
+  userRouter.route('/users')
+        .get((req, res) => {UserRoutes.getAllUsers(req, res); })
+        .post((req, res) => {UserRoutes.addUser(req, res); });
 
-  userRouter.get('/users', (req, res) => {UserRoutes.getAllUsers(req, res); });
 
   userRouter.route('/users/:id')
     .get((req, res)    => {UserRoutes.getOneUser(req, res); })
