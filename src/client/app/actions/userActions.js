@@ -108,3 +108,9 @@ export function updateUserInfo(updatedUser, userId, token) {
     });
   };
 }
+
+export function selectActiveUser(user) {
+  return function(dispatch) {
+    dispatch({type: types.SET_ACTIVE_USER, payload: user});
+  };
+}
