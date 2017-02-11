@@ -15,12 +15,19 @@ class MembersListContainer extends Component {
     fetchUsers(token);
   }
 
+  handleViewMember() {
+    return 'Hello'
+  }
+
+
+
   render() {
     const { members } = this.props;
     return (
       <section>
         <h1>Members</h1>
-        <MembersList members={ members } />
+        <MembersList members={ members }
+                     handleViewMember={this.handleViewMember}/>
       </section>
     )
   }

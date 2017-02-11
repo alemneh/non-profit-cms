@@ -7,7 +7,7 @@ const MemberPage = () => {
       <Link to="/members-list"
             className="btn btn-default btn-lg btn-block">View Members
       </Link>
-      <Link to="/members-add"
+      <Link to="/add-member"
             className="btn btn-default btn-lg btn-block">Add New Member
       </Link>
     </section>

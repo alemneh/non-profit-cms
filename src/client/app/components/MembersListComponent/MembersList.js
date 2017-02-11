@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Member from '../MemberComponent/Member';
+import { Link } from 'react-router';
 
 const MembersListComponent = ({
   members,
@@ -7,19 +8,27 @@ const MembersListComponent = ({
 }) => {
 
   const renderMembersList = () => {
-    if(members) {
+    if(members.length > 0) {
+      console.log(members);
+
       return members.map((member, index) => {
-        return <Member key={index} member={member} index={index} />
+        return <Member key={index}
+                       member={member}
+                       index={index}
+                       handleViewMember={handleViewMember}/>
       })
     }
-    return;
+    console.log('hit');
+    return (
+      <div>No members added yet. <Link to="/add-member">Add Members.</Link></div>
+    )
   }
 
   return (
     <section>
       <div className="list-group">
         { renderMembersList() }
-    </div>
+      </div>
     </section>
   )
 }

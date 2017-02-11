@@ -1,6 +1,6 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
-import { SIGN_UP_FULFILLED, LOGIN_FULFILLED, LOGOUT } from '../ActionConstants';
+import { ADD_USER_FULFILLED, LOGIN_FULFILLED, LOGOUT } from '../ActionConstants';
 
 export default store => next => action => {
 
@@ -8,8 +8,8 @@ export default store => next => action => {
     browserHistory.push('/login-form');
   } else if( action.type === LOGIN_FULFILLED ) {
     browserHistory.push('/');
-  } else if (action.type === SIGN_UP_FULFILLED) {
-    browserHistory.push('/members');
+  } else if (action.type === ADD_USER_FULFILLED) {
+    browserHistory.push('/members-list');
   }
 
   next(action);

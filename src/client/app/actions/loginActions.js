@@ -22,7 +22,7 @@ export function login(username, password) {
 export function addUser(newUser, token) {
   return function(dispatch) {
     dispatch({type: types.ADD_USER});
-    axios.post(process.env.URL + '/signup', newUser, {
+    axios.post(process.env.URL + '/users', newUser, {
       headers: { 'token': token}
     })
       .then((res) => {

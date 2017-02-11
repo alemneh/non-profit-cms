@@ -4,11 +4,11 @@ import React, { PropTypes } from 'react';
 const AddMemberComponent = ({ handleAddMember, handleInputChange }) => {
 
   return (
-    <form onClick={ handleAddMember } className="form-horizontal">
+    <form onSubmit={ handleAddMember } className="form-horizontal">
       <fieldset>
         <legend>Add New Member</legend>
         <div className="form-group">
-          <label for="inputName" class="col-lg-2 control-label">Name</label>
+          <label for="inputName" className="col-lg-2 control-label">Name</label>
           <div className="col-lg-10">
             <input onChange={ handleInputChange }  name="name" type="text" className="form-control" id="inputName" placeholder="Name" />
           </div>
@@ -53,8 +53,9 @@ const AddMemberComponent = ({ handleAddMember, handleInputChange }) => {
           <label for="select" className="col-lg-2 control-label">Committe</label>
           <div className="col-lg-10">
             <select onChange={ handleInputChange }  name="committee" className="form-control" id="select">
-              <option>Yes</option>
-              <option>No</option>
+              <option value="">--Select Option--</option>
+              <option value="false">No</option>
+              <option value="true">Yes</option>
             </select>
           </div>
         </div>
@@ -62,11 +63,12 @@ const AddMemberComponent = ({ handleAddMember, handleInputChange }) => {
           <label for="select" className="col-lg-2 control-label">Role</label>
           <div className="col-lg-10">
             <select onChange={ handleInputChange }  name="role" className="form-control" id="select">
+              <option value="">--Select Option--</option>
+              <option>Member</option>
               <option>Chairman</option>
               <option>Vice Chairman</option>
               <option>Treasurer</option>
               <option>Secretary</option>
-              <option>Member</option>
             </select>
           </div>
         </div>
@@ -74,8 +76,9 @@ const AddMemberComponent = ({ handleAddMember, handleInputChange }) => {
           <label for="select" className="col-lg-2 control-label">Volunteer</label>
           <div className="col-lg-10">
             <select onChange={ handleInputChange } name="volunteer" className="form-control" id="select">
-              <option>Yes</option>
-              <option>No</option>
+              <option value="">--Select Option--</option>
+              <option value="false">No</option>
+              <option value="true">Yes</option>
             </select>
           </div>
         </div>

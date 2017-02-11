@@ -7,6 +7,7 @@ const Account = models.Account;
 let UserRoutes = {
 
   addUser: function(req, res) {
+    console.log(req.body);
     User.findOne({name: req.body.name}, (err, user) => {
       if(err) throw err;
       if(!user) {

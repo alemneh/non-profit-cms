@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { signup } from '../../actions/loginActions';
+import { addUser } from '../../actions/loginActions';
 import AddMemberComponent from '../../components/AddMemberComponent/AddMember';
 
 class AddMemberContainer extends Component {
@@ -23,27 +23,32 @@ class AddMemberContainer extends Component {
         zipCode: ''
       }
     }
+
+    this.handleAddMember = this.handleAddMember.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   handleInputChange(e) {
+
     let key = e.target.name;
     let obj = {};
     obj[key] = e.target.value;
-    let updatedValues = Object.assign({}, this.state.values, obj);
-    this.setState({values: updatedValues});
+    console.log(key+': ' + e.target.value);
+    let updatedValues = Object.assign({}, this.state.member, obj);
+    this.setState({member: updatedValues});
   }
 
   handleAddMember(e) {
-    const { token, signup} = this.props;
     e.preventDefault();
-
-    signup(this.state.member, token);
+    const { token, addUser} = this.props;
+    console.log(this.state.member);
+    addUser(this.state.member, token);
   }
 
   render() {
     return (
       <section>
-        <AddMemberContainer handleInputChange={this.handleInputChange}
+        <AddMemberComponent handleInputChange={this.handleInputChange}
                             handleAddMember={this.handleAddMember}/>
       </section>
     )
@@ -58,7 +63,7 @@ function mapPropsToState(state) {
 
 
 function matchDispatchToProps(dispatch) {
-  return bindActionCreators({ signup }, dispatch);
+  return bindActionCreators({ addUser }, dispatch);
 }
 
 export default connect(mapPropsToState, matchDispatchToProps)(AddMemberContainer);
