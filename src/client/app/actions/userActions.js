@@ -94,14 +94,14 @@ export function removeUser(userId, token) {
   };
 }
 
-export function updateUserInfo(updatedUser, userId, token) {
+export function updateUserInfo(updatedUser, token) {
   return function(dispatch) {
     dispatch({ type: types.UPDATE_USER });
-    axios.put(process.env.URL + '/users/' + userId, updatedUser, {
+    axios.put(process.env.URL + '/users/' + updatedUser._id, updatedUser, {
       headers: { 'token': token }
     })
     .then((res) => {
-      dispatch({type: types.UPDATE_USER_FULFILLED, payload: res.data.user });
+      dispatch({type: types.UPDATE_USER_FULFILLED, payload: updatedUser });
     })
     .catch((err) => {
       dispatch({type: types.UPDATE_USER_REJECTED, payload: err });
@@ -112,5 +112,11 @@ export function updateUserInfo(updatedUser, userId, token) {
 export function selectActiveUser(user) {
   return function(dispatch) {
     dispatch({type: types.SET_ACTIVE_USER, payload: user});
+  };
+}
+
+export function editBtnClicked() {
+  return function(dispatch) {
+    dispatch({type: types.SET_EDITING_MODE});
   };
 }

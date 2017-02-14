@@ -7,8 +7,10 @@ const initialState = {
   dues: [],
   payments: [],
   error: null,
+  isEditing: false,
   fetching: false,
-  fetched: false
+  fetched: false,
+  activeUser: null
 };
 
 export default function(state=initialState, action) {
@@ -114,8 +116,15 @@ export default function(state=initialState, action) {
         ...state,
         fetching: false,
         fetched: true,
-        user: action.payload
+        isEditing: false,
+        activeUser: action.payload
       }
+    }
+    case types.SET_ACTIVE_USER: {
+      return {...state, activeUser: action.payload}
+    }
+    case types.SET_EDITING_MODE: {
+      return {...state, isEditing: true}
     }
     default:
       return state;

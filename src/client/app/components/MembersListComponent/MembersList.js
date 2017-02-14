@@ -9,7 +9,6 @@ const MembersListComponent = ({
 
   const renderMembersList = () => {
     if(members.length > 0) {
-      console.log(members);
 
       return members.map((member, index) => {
         return <Member key={index}
@@ -18,7 +17,6 @@ const MembersListComponent = ({
                        handleViewMember={handleViewMember}/>
       })
     }
-    console.log('hit');
     return (
       <div>No members added yet. <Link to="/add-member">Add Members.</Link></div>
     )

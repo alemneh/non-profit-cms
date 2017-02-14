@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchUsers } from '../../actions/userActions';
+import { fetchUsers, selectActiveUser } from '../../actions/userActions';
 import MembersList from '../../components/MembersListComponent/MembersList';
 
 class MembersListContainer extends Component {
   constructor(props) {
     super(props);
 
+    this.handleViewMember = this.handleViewMember.bind(this);
   }
 
   componentWillMount() {
@@ -15,8 +16,8 @@ class MembersListContainer extends Component {
     fetchUsers(token);
   }
 
-  handleViewMember() {
-    return 'Hello'
+  handleViewMember(user) {
+    this.props.selectActiveUser(user);
   }
 
 
@@ -26,6 +27,7 @@ class MembersListContainer extends Component {
     return (
       <section>
         <h1>Members</h1>
+        <hr />
         <MembersList members={ members }
                      handleViewMember={this.handleViewMember}/>
       </section>
@@ -41,7 +43,7 @@ function mapPropsToState(state) {
 }
 
 function matchDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchUsers }, dispatch);
+  return bindActionCreators({ fetchUsers, selectActiveUser }, dispatch);
 }
 
 export default connect(mapPropsToState, matchDispatchToProps)(MembersListContainer);

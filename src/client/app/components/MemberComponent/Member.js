@@ -6,7 +6,7 @@ const MemberComponent = ({ index, member, handleViewMember }) => {
   return (
     <div>
       <a href="#" className="list-group-item"
-         onClick={ handleViewMember }
+         onClick={() => handleViewMember(member) }
         >{ index + 1 }. { member.name }</a>
     </div>
   )

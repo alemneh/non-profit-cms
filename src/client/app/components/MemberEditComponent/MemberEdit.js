@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 
-const EditMemberComponent = ({ handleUpdateMember, handleInputChange, member }) => {
+const MemberEditComponent = ({ handleUpdateMember, handleInputChange, member }) => {
 
   return (
     <form onSubmit={ handleUpdateMember } className="form-horizontal">
@@ -52,7 +52,7 @@ const EditMemberComponent = ({ handleUpdateMember, handleInputChange, member }) 
         <div className="form-group">
           <label for="select" className="col-lg-2 control-label">Committe</label>
           <div className="col-lg-10">
-            <select onChange={ handleInputChange }  name="committee" className="form-control" id="select">
+            <select value={member.committee} onChange={ handleInputChange }  name="committee" className="form-control" id="select">
               <option value="">--Select Option--</option>
               <option value="false">No</option>
               <option value="true">Yes</option>
@@ -62,7 +62,7 @@ const EditMemberComponent = ({ handleUpdateMember, handleInputChange, member }) 
         <div className="form-group">
           <label for="select" className="col-lg-2 control-label">Role</label>
           <div className="col-lg-10">
-            <select onChange={ handleInputChange }  name="role" className="form-control" id="select">
+            <select value={member.role} onChange={ handleInputChange }  name="role" className="form-control" id="select">
               <option value="">--Select Option--</option>
               <option>Member</option>
               <option>Chairman</option>
@@ -75,7 +75,7 @@ const EditMemberComponent = ({ handleUpdateMember, handleInputChange, member }) 
         <div className="form-group">
           <label for="select" className="col-lg-2 control-label">Volunteer</label>
           <div className="col-lg-10">
-            <select onChange={ handleInputChange } name="volunteer" className="form-control" id="select">
+            <select value={member.volunteer} onChange={ handleInputChange } name="volunteer" className="form-control" id="select">
               <option value="">--Select Option--</option>
               <option value="false">No</option>
               <option value="true">Yes</option>
@@ -93,10 +93,10 @@ const EditMemberComponent = ({ handleUpdateMember, handleInputChange, member }) 
   )
 }
 
-EditMemberComponent.propTypes = {
+MemberEditComponent.propTypes = {
   member: PropTypes.object.isRequired,
   handleUpdateMember: PropTypes.func.isRequired,
   handleInputChange: PropTypes.func.isRequired
 }
 
-export default EditMemberComponent;
+export default MemberEditComponent;
