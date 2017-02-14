@@ -15,18 +15,10 @@ module.exports = (userRouter, models) => {
     .delete((req, res) => {UserRoutes.deleteUser(req, res); });
 
 
-  userRouter.route('/users/:id/dues')
-    .post((req, res)   => {UserRoutes.addPaymentToUser(req, res); });
 
   userRouter.route('/users/:id/payments')
-    .post((req, res)   => {UserRoutes.makePaymentForUser(req, res); })
     .get((req, res)   => {UserRoutes.getAllUsersPayments(req, res); });
 
-
-
-  userRouter.route('/users/:id/payments/:paymentId')
-    .put((req, res)    => {UserRoutes.updateUser(req, res); })
-    .delete((req, res) => {UserRoutes.deleteUser(req, res); });
 
 
 

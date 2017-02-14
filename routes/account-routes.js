@@ -1,10 +1,10 @@
 'use strict';
 const models = require('../models');
-const Payment = models.Payment;
+const Transaction = models.Transaction;
 const User = models.User;
 const Account = models.Account;
 
-let PaymentRoutes = {
+let AccountRoutes = {
 
   createAccount: function(req, res) {
     const newAccount = new Account(req.body);
@@ -25,4 +25,4 @@ let PaymentRoutes = {
 
 };
 
-module.exports = PaymentRoutes;
+module.exports = AccountRoutes;

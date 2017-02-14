@@ -86,7 +86,7 @@ export function removeUser(userId, token) {
       headers: { 'token': token}
     })
     .then((res) => {
-      dispatch({type: types.REMOVE_USER_FULFILLED, payload: res.data.message});
+      dispatch({type: types.REMOVE_USER_FULFILLED, payload: userId});
     })
     .catch((err) => {
       dispatch({ type: types.REMOVE_USER_REJECTED, payload: err });

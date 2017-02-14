@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 
 
-const MemberInfoCompnent = ({ member, onEditClick }) => {
-
+const MemberInfoCompnent = ({ member, onEditClick, handleRemoveUser }) => {
+  console.log('Volunteer: ' + member.volunteer);
   return (
     <div>
       <h3>User Info</h3>
@@ -19,7 +19,7 @@ const MemberInfoCompnent = ({ member, onEditClick }) => {
       <p><b>Volunteer: </b>  {member.volunteer ? 'Yes' : 'No'} </p>
       <br />
       <a onClick={ onEditClick } href="#" className="btn btn-primary">Edit</a>
-      <a onClick={ onEditClick } href="#" className="btn btn-danger">Delete</a>
+      <a onClick={ handleRemoveUser } href="#" className="btn btn-danger">Delete</a>
     </div>
   )
 }

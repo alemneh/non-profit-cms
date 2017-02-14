@@ -7,7 +7,7 @@ mongoose.connect(process.env[CONFIG.database] || CONFIG.database);
 const models = {};
 
 require('./user')(mongoose, models);
-require('./payment')(mongoose, models);
+require('./transaction')(mongoose, models);
 require('./account')(mongoose, models);
 
 

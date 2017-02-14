@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { editBtnClicked, updateUserInfo } from '../../actions/userActions';
-import ProfileComponent from '../../components/ProfileComponent/Profile';
+import { editBtnClicked, updateUserInfo, removeUser } from '../../actions/userActions';
+import MemberInfo from '../../components/MemberInfoComponent/MemberInfo';
+import MemberEdit from '../../components/MemberEditComponent/MemberEdit';
+import MemberHistory from '../../components/MemberInfoComponent/MemberHistory';
+
 
 class ProfileContainer extends Component {
   constructor(props) {
@@ -11,7 +14,9 @@ class ProfileContainer extends Component {
       member: this.props.member || null
     }
     this.handleUpdateMember = this.handleUpdateMember.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleRemoveUser   = this.handleRemoveUser.bind(this);
+    this.handleInputChange  = this.handleInputChange.bind(this);
+    this.renderMemberInfo   = this.renderMemberInfo.bind(this);
   }
 
 
@@ -25,6 +30,13 @@ class ProfileContainer extends Component {
     this.setState({member: updatedValues});
   }
 
+  handleRemoveUser(e) {
+    e.preventDefault();
+    const { token, removeUser, member } = this.props;
+
+    removeUser(member._id, token);
+  }
+
   handleUpdateMember(e) {
     e.preventDefault();
     const { token, updateUserInfo } = this.props;
@@ -32,15 +44,28 @@ class ProfileContainer extends Component {
     updateUserInfo(this.state.member, token)
   }
 
+  renderMemberInfo() {
+    const { isEditing, editBtnClicked, member } = this.props;
+    if(isEditing) {
+      return (
+        <MemberEdit member={this.state.member}
+                    handleInputChange={this.handleInputChange}
+                    handleUpdateMember={this.handleUpdateMember}/>
+      )
+    }
+    return (
+      <MemberInfo member={member}
+                  handleRemoveUser={this.handleRemoveUser}
+                  onEditClick={editBtnClicked}/>
+    )
+  }
+
   render() {
-    const { isEditing, editBtnClicked } = this.props;
+    const { isEditing, editBtnClicked, member } = this.props;
     return (
       <section>
-        <ProfileComponent member={ this.state.member }
-                          isEditing={isEditing}
-                          onEditClick={editBtnClicked}
-                          handleInputChange={this.handleInputChange}
-                          handleUpdateMember={this.handleUpdateMember}/>
+        { this.renderMemberInfo() }
+        <MemberHistory member={member} />
       </section>
     )
   }
@@ -56,7 +81,7 @@ function mapPropsToState(state) {
 }
 
 function matchDispatchToProps(dispatch) {
-  return bindActionCreators({ editBtnClicked, updateUserInfo }, dispatch);
+  return bindActionCreators({ editBtnClicked, updateUserInfo, removeUser }, dispatch);
 }
 
 export default connect(mapPropsToState, matchDispatchToProps)(ProfileContainer);

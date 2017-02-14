@@ -8,6 +8,7 @@ const ProfileComponent = ({
   isEditing,
   onEditClick,
   handleUpdateMember,
+  handleRemoveUser,
   handleInputChange
 }) => {
 
@@ -21,6 +22,7 @@ const ProfileComponent = ({
     }
     return (
       <MemberInfo member={member}
+                  handleRemoveUser={handleRemoveUser}
                   onEditClick={onEditClick}/>
     )
   }

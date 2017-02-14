@@ -96,8 +96,8 @@ export default function(state=initialState, action) {
       return {...state, fetching:false, error: action.payload}
     }
     case types.REMOVE_USER_FULFILLED: {
-      const removedUser = action.payload;
-      const users = [...state.users].filter((user) => user._id != removedUser._id);
+      const removedUserId = action.payload;
+      const users = [...state.users].filter((user) => user._id != removedUserId);
       return {
         ...state,
         fetched: true,

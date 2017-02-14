@@ -10,7 +10,7 @@ module.exports = function(mongoose, models) {
     admin: {type: Boolean, default: false},
     isCaller: {type: Boolean, default: false},
     isBoss: {type: Boolean, default: false},
-    payments: [{type: Schema.Types.ObjectId, ref:'Payment' }],
+    payments: [{type: Schema.Types.ObjectId, ref:'Transaction' }],
     role: String,
     committee: Boolean,
     volunteer: Boolean,
