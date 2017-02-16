@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { editBtnClicked, updateUserInfo, removeUser } from '../../actions/userActions';
+import { editBtnClicked, updateUserInfo, removeUser, fetchUserPayments } from '../../actions/userActions';
 import MemberInfo from '../../components/MemberInfoComponent/MemberInfo';
 import MemberEdit from '../../components/MemberEditComponent/MemberEdit';
 import MemberHistory from '../../components/MemberInfoComponent/MemberHistory';
@@ -17,6 +17,12 @@ class ProfileContainer extends Component {
     this.handleRemoveUser   = this.handleRemoveUser.bind(this);
     this.handleInputChange  = this.handleInputChange.bind(this);
     this.renderMemberInfo   = this.renderMemberInfo.bind(this);
+  }
+
+  componentWillMount() {
+    const { member, fetchUserPayments, token} = this.props;
+
+    fetchUserPayments(member._id, token);
   }
 
 
@@ -61,11 +67,11 @@ class ProfileContainer extends Component {
   }
 
   render() {
-    const { isEditing, editBtnClicked, member } = this.props;
+    const { isEditing, editBtnClicked, payments } = this.props;
     return (
       <section>
         { this.renderMemberInfo() }
-        <MemberHistory member={member} />
+        <MemberHistory payments={payments} />
       </section>
     )
   }
@@ -76,12 +82,18 @@ function mapPropsToState(state) {
   return {
     member: state.user.activeUser,
     isEditing: state.user.isEditing,
+    payments: state.user.payments,
     token: state.login.token
   }
 }
 
 function matchDispatchToProps(dispatch) {
-  return bindActionCreators({ editBtnClicked, updateUserInfo, removeUser }, dispatch);
+  return bindActionCreators({
+    editBtnClicked,
+    updateUserInfo,
+    removeUser,
+    fetchUserPayments
+  }, dispatch);
 }
 
 export default connect(mapPropsToState, matchDispatchToProps)(ProfileContainer);

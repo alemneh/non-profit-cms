@@ -1,11 +1,11 @@
 'use strict';
 
-const PaymentRoutes= require('../routes/transaction-routes.js');
+const TransactionRoutes = require('../routes/transaction-routes.js');
 
-module.exports = (paymentRouter, models) => {
+module.exports = (transactionRouter, models) => {
 
-  paymentRouter.route('/payments')
-    .post((req, res) => {PaymentRoutes.makeTransaction(req, res); })
-    .get((req, res)  => {PaymentRoutes.getAllTransactions(req, res); });
+  transactionRouter.route('/transactions')
+    .post((req, res) => {TransactionRoutes.makeTransaction(req, res); })
+    .get((req, res)  => {TransactionRoutes.getAllTransactions(req, res); });
 
 };

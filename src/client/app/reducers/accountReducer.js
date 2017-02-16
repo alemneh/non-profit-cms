@@ -5,7 +5,7 @@ const initialState = {
   fetching: null,
   fetched: null,
   error: null,
-  payments: []
+  transactions: []
 };
 
 export default function(state=initialState, action) {
@@ -24,18 +24,34 @@ export default function(state=initialState, action) {
         accounts: action.payload
       }
     }
-    case types.FETCH_ALL_PAYMENTS: {
+    case types.FETCH_ALL_TRANSACTIONS: {
       return {...state, fetching: true}
     }
-    case types.FETCH_ALL_PAYMENTS_REJECTED: {
+    case types.FETCH_ALL_TRANSACTIONS_REJECTED: {
       return {...state, fetching: false, error: action.payload}
     }
-    case types.FETCH_ALL_PAYMENTS_FUFILLED: {
+    case types.FETCH_ALL_TRANSACTIONS_FULFILLED: {
       return {
         ...state,
         fetching: false,
         fetched: true,
-        payments: action.payload
+        transactions: action.payload
+      }
+    }
+    case types.MAKE_TRANSACTION: {
+      return {...state, fetching: true}
+    }
+    case types.MAKE_TRANSACTION_REJECTED: {
+      return {...state, fetching: false, error: action.payload}
+    }
+    case types.MAKE_TRANSACTION_REJECTED: {
+      const newTransactions = [...state.transactions].concat(action.payload);
+      return {
+        ...state,
+        fetching: false,
+        fetched: true,
+        transactions:
+        newTransactions
       }
     }
     default:

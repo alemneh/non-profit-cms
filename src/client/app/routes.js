@@ -7,7 +7,8 @@ import MemberPage from './components/MemberPageComponent/MemberPage';
 import MembersList from './containers/MembersListContainer/MembersList';
 import AddMemberPage from './containers/AddMemberContainer/AddMember';
 import ProfilePage from './containers/ProfileContainer/Profile';
-// import Account from './containers/AccountContainer/AccountPage';
+import AccountPage from './containers/AccountContainer/Account';
+import AddTransaction from './containers/AddTransactionContainer/AddTransaction';
 
 
 const routes = (
@@ -18,8 +19,8 @@ const routes = (
     <Route path="/members-list" component={MembersList} />
     <Route path="/add-member"  component={AddMemberPage} />
     <Route path="/profile"  component={ProfilePage} />
-
-    {/* <Route path="/accounts"  component={Account}  /> */}
+    <Route path="/accounts-info" component={AccountPage} />
+    <Route path="/add-transaction" component={AddTransaction} />
   </Route>
 );
 

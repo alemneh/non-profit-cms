@@ -16,17 +16,32 @@ export function fetchAllAccounts(token) {
   };
 }
 
-export function fetchAllPayments(token) {
+export function fetchAllTransactions(token) {
   return function(dispatch) {
-    dispatch({type: types.FETCH_ALL_PAYMENTS});
-    axios.get(process.env.URL + '/payments', {
+    dispatch({type: types.FETCH_ALL_TRANSACTIONS});
+    axios.get(process.env.URL + '/transactions', {
       headers: { 'token': token }
     })
     .then((res) => {
-      dispatch({type: types.FETCH_ALL_PAYMENTS_FUFILLED, payload: res.data.payments});
+      dispatch({type: types.FETCH_ALL_TRANSACTIONS_FULFILLED, payload: res.data.transactions});
     })
     .catch((err) => {
-      dispatch({type: types.FETCH_ALL_PAYMENTS_REJECTED, payload: err});
+      dispatch({type: types.FETCH_ALL_TRANSACTIONS_REJECTED, payload: err});
+    });
+  };
+}
+
+export function makeTransaction(transAct, token) {
+  return function(dispatch) {
+    dispatch({type: types.MAKE_TRANSACTION});
+    axios.post(process.env.URL + '/transactions', transAct, {
+      headers: { 'token': token }
+    })
+    .then((res) => {
+      dispatch({type: types.MAKE_TRANSACTION_FULFILLED, payload: res.data.newTransaction});
+    })
+    .catch((err) => {
+      dispatch({type: types.MAKE_TRANSACTION_REJECTED, payload: err});
     });
   };
 }

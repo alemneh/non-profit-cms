@@ -3,6 +3,7 @@ import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { logout } from '../../actions/loginActions';
+import { fetchUsers } from '../../actions/userActions';
 import NavBarComponent from '../../components/NavBarComponent/NavBar';
 
 class NavBarContainer extends Component {
@@ -13,9 +14,11 @@ class NavBarContainer extends Component {
   }
 
   componentWillMount() {
-    if(!this.props.token) {
+    const { token, fetchUsers } = this.props;
+    if(!token) {
       browserHistory.push('/login-form');
     }
+    fetchUsers(token);
   }
 
   handleLogout(e) {
@@ -42,7 +45,7 @@ function mapPropsToState(state) {
 }
 
 function matchDispatchToProps(dispatch) {
-  return bindActionCreators({logout}, dispatch);
+  return bindActionCreators({logout, fetchUsers}, dispatch);
 }
 
 export default connect(mapPropsToState, matchDispatchToProps)(NavBarContainer);

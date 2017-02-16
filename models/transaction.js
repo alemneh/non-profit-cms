@@ -5,8 +5,7 @@ module.exports = (mongoose, models) => {
     _owner: [{type: String, ref: 'User'}],
     amount: {type:Number, default: 15},
     type: String,
-    name: String,
-    isPaid: {type: Boolean, default: false}
+    name: String
   },{
     timestamps: true
   });

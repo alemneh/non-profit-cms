@@ -1,7 +1,6 @@
 import React from 'react';
 
-const MemberHistory = ({ payments }) => {
-
+const AccountHistory = ({ history }) => {
   const  USDformatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -18,21 +17,23 @@ const MemberHistory = ({ payments }) => {
 
   return (
     <div>
-      <h3>Payment History</h3>
+      <h3>Transaction History</h3>
       <hr />
       <table className="table table-striped table-hover ">
         <thead>
           <tr>
             <th>Date: </th>
             <th>Amount: </th>
+            <th>Type: </th>
           </tr>
         </thead>
         <tbody>
-          { payments.map((payment, index) => {
+          { history.map((transAct, index) => {
             return (
               <tr key={index}>
-                <td>{Dateformatter(payment.createdAt)}</td>
-                <td>{USDformatter.format(payment.amount)}</td>
+                <td>{Dateformatter(transAct.createdAt)}</td>
+                <td>{USDformatter.format(transAct.amount)}</td>
+                <td>{transAct.type}</td>
               </tr>
             )
           })}
@@ -42,4 +43,4 @@ const MemberHistory = ({ payments }) => {
   )
 }
 
-export default MemberHistory;
+export default AccountHistory;

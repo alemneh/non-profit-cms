@@ -17,7 +17,7 @@ module.exports = (userRouter, models) => {
 
 
   userRouter.route('/users/:id/payments')
-    .get((req, res)   => {UserRoutes.getAllUsersPayments(req, res); });
+    .get((req, res)   => {UserRoutes.getAllUserPayments(req, res); });
 
 
 
