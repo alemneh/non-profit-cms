@@ -12,8 +12,10 @@ export default store => next => action => {
     browserHistory.push('/members-list');
   } else if (action.type === types.SET_ACTIVE_USER) {
     browserHistory.push('/profile');
+  } else if (action.type === types.SET_ACTIVE_TRANSACTION) {
+    browserHistory.push('/transaction-info');
   } else if (action.type === types.REMOVE_USER_FULFILLED) {
-    browserHistory.push('members-list');
+    browserHistory.push('/members-list');
   }
 
   next(action);

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 
-const AddMemberComponent = ({ handleAddTransaction, handleInputChange, members }) => {
+const AddTransactionComponent = ({ handleAddTransaction, handleInputChange, members }) => {
 
   return (
     <form onSubmit={ handleAddTransaction } className="form-horizontal">
@@ -36,9 +36,9 @@ const AddMemberComponent = ({ handleAddTransaction, handleInputChange, members }
   )
 }
 
-AddMemberComponent.propTypes = {
+AddTransactionComponent.propTypes = {
   handleAddTransaction: PropTypes.func.isRequired,
   handleInputChange: PropTypes.func.isRequired
 }
 
-export default AddMemberComponent;
+export default AddTransactionComponent;

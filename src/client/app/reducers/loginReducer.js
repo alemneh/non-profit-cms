@@ -3,12 +3,10 @@ import * as types from '../ActionConstants';
 
 const initialState = {
   token: null,
-  userId: null,
   fetching: false,
   fetched: false,
   error: null,
-  success: null,
-  slideToggleClass: ''
+  success: null
 }
 
 export default function(state=initialState, action) {
@@ -20,13 +18,13 @@ export default function(state=initialState, action) {
       return {...state, fetching: false, error: action.payload}
     }
     case types.LOGIN_FULFILLED: {
-      const { token, userId} = action.payload;
+      const { token, user} = action.payload;
       return {
         ...state,
         fetching: false,
         fetched: true,
         token,
-        userId
+        user
       }
     }
     case types.ADD_USER: {

@@ -9,6 +9,9 @@ import AddMemberPage from './containers/AddMemberContainer/AddMember';
 import ProfilePage from './containers/ProfileContainer/Profile';
 import AccountPage from './containers/AccountContainer/Account';
 import AddTransaction from './containers/AddTransactionContainer/AddTransaction';
+import AddRemittance from './containers/AddRemittanceContainer/AddRemittance';
+import TransactionInfo from './containers/TransactionInfoContainer/TransactionInfo';
+
 
 
 const routes = (
@@ -18,9 +21,11 @@ const routes = (
     <Route path="/members" component={MemberPage} />
     <Route path="/members-list" component={MembersList} />
     <Route path="/add-member"  component={AddMemberPage} />
+    <Route path="/transaction-info" component={TransactionInfo} />
     <Route path="/profile"  component={ProfilePage} />
     <Route path="/accounts-info" component={AccountPage} />
-    <Route path="/add-transaction" component={AddTransaction} />
+    <Route path="/add-payment" component={AddTransaction} />
+    <Route path="/add-remittance" component={AddRemittance} />
   </Route>
 );
 

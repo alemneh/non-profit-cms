@@ -45,3 +45,9 @@ export function makeTransaction(transAct, token) {
     });
   };
 }
+
+export function selectActiveTransaction(user) {
+  return function(dispatch) {
+    dispatch({type: types.SET_ACTIVE_TRANSACTION, payload: user});
+  };
+}

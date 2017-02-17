@@ -5,6 +5,7 @@ const initialState = {
   fetching: null,
   fetched: null,
   error: null,
+  activeTransaction: null,
   transactions: []
 };
 
@@ -53,6 +54,9 @@ export default function(state=initialState, action) {
         transactions:
         newTransactions
       }
+    }
+    case types.SET_ACTIVE_TRANSACTION: {
+      return {...state, activeTransaction: action.payload}
     }
     default:
       return state;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AccountHistory = ({ history }) => {
+const AccountHistory = ({ history, handleViewTransaction }) => {
   const  USDformatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -30,7 +30,7 @@ const AccountHistory = ({ history }) => {
         <tbody>
           { history.map((transAct, index) => {
             return (
-              <tr key={index}>
+              <tr key={index} onClick={() => {handleViewTransaction(transAct)}}>
                 <td>{Dateformatter(transAct.createdAt)}</td>
                 <td>{USDformatter.format(transAct.amount)}</td>
                 <td>{transAct.type}</td>

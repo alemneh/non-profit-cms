@@ -16,7 +16,9 @@ let TransactionRoutes = {
   },
 
   makeTransaction: function(req, res) {
-    User.findOne({name: req.body.name})
+    const name = req.body.type === 'Remittance' ? req.body.createdBy :
+                                                  req.body.name;
+    User.findOne({name})
       .exec()
       .then((user) => {
         let newTransaction = new Transaction(req.body);
@@ -29,7 +31,12 @@ let TransactionRoutes = {
       })
       .then((newTransaction) => {
         Account.find({}, (err, account) => {
-          account[0].amount += newTransaction.amount;
+          if(newTransaction.type === 'Payment') {
+            account[0].amount += newTransaction.amount;
+          } else {
+            account[0].amount -= newTransaction.amount;
+          }
+
           account[0].save((err, account) => {
             if(err) throw err;
             res.json({ message: 'payment made!', newTransaction, account });

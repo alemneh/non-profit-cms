@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { makeTransaction } from '../../actions/accountActions';
-import AddTransactionComponent from '../../components/AddTransactionComponent/AddTransaction';
-console.log(makeTransaction);
-class AddTransactionContainer extends Component {
+import AddRemittanceComponent from '../../components/AddRemittanceComponent/AddRemittance';
+
+class AddRemittanceContainer extends Component {
   constructor(props) {
     super(props);
 
@@ -12,11 +12,11 @@ class AddTransactionContainer extends Component {
       transaction: {
         name: '',
         amount: '',
-        type: 'Payment'
+        type: 'Remittance'
       }
     }
 
-    this.handleAddTransaction = this.handleAddTransaction.bind(this);
+    this.handleAddRemittance = this.handleAddRemittance.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
@@ -32,23 +32,21 @@ class AddTransactionContainer extends Component {
     this.setState({transaction: updatedValues});
   }
 
-  handleAddTransaction(e) {
+  handleAddRemittance(e) {
     e.preventDefault();
-    console.log(this.props);
-    const { token, admin, makeTransaction} = this.props;
+    const { token, makeTransaction, admin} = this.props;
     let transaction = this.state.transaction;
     transaction.createdBy = admin.name;
-    console.log(this.state.transaction);
-
+    console.log(transaction);
     makeTransaction(transaction, token);
   }
 
   render() {
     return (
       <section>
-        <AddTransactionComponent
+        <AddRemittanceComponent
                             handleInputChange={this.handleInputChange}
-                            handleAddTransaction={this.handleAddTransaction}
+                            handleAddRemittance={this.handleAddRemittance}
                             members={this.props.members}
                           />
       </section>
@@ -69,4 +67,4 @@ function matchDispatchToProps(dispatch) {
   return bindActionCreators({ makeTransaction}, dispatch);
 }
 
-export default connect(mapPropsToState, matchDispatchToProps)(AddTransactionContainer);
+export default connect(mapPropsToState, matchDispatchToProps)(AddRemittanceContainer);

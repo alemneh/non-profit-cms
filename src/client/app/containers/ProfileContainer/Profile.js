@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { editBtnClicked, updateUserInfo, removeUser, fetchUserPayments } from '../../actions/userActions';
+import { selectActiveTransaction } from '../../actions/accountActions';
 import MemberInfo from '../../components/MemberInfoComponent/MemberInfo';
 import MemberEdit from '../../components/MemberEditComponent/MemberEdit';
 import MemberHistory from '../../components/MemberInfoComponent/MemberHistory';
@@ -13,10 +14,11 @@ class ProfileContainer extends Component {
     this.state = {
       member: this.props.member || null
     }
-    this.handleUpdateMember = this.handleUpdateMember.bind(this);
-    this.handleRemoveUser   = this.handleRemoveUser.bind(this);
-    this.handleInputChange  = this.handleInputChange.bind(this);
-    this.renderMemberInfo   = this.renderMemberInfo.bind(this);
+    this.handleUpdateMember    = this.handleUpdateMember.bind(this);
+    this.handleViewTransaction = this.handleViewTransaction.bind(this);
+    this.handleRemoveUser      = this.handleRemoveUser.bind(this);
+    this.handleInputChange     = this.handleInputChange.bind(this);
+    this.renderMemberInfo      = this.renderMemberInfo.bind(this);
   }
 
   componentWillMount() {
@@ -41,6 +43,10 @@ class ProfileContainer extends Component {
     const { token, removeUser, member } = this.props;
 
     removeUser(member._id, token);
+  }
+
+  handleViewTransaction(transaction) {
+    this.props.selectActiveTransaction(transaction);
   }
 
   handleUpdateMember(e) {
@@ -71,7 +77,8 @@ class ProfileContainer extends Component {
     return (
       <section>
         { this.renderMemberInfo() }
-        <MemberHistory payments={payments} />
+        <MemberHistory payments={payments}
+                       handleViewTransaction={this.handleViewTransaction}/>
       </section>
     )
   }
@@ -92,7 +99,8 @@ function matchDispatchToProps(dispatch) {
     editBtnClicked,
     updateUserInfo,
     removeUser,
-    fetchUserPayments
+    fetchUserPayments,
+    selectActiveTransaction
   }, dispatch);
 }
 

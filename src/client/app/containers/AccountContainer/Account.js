@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchAllAccounts, fetchAllTransactions } from '../../actions/accountActions';
+import { fetchAllAccounts, fetchAllTransactions, selectActiveTransaction } from '../../actions/accountActions';
 import AccountInfo from '../../components/AccountComponent/AccountInfo';
 import AccountHistory from '../../components/AccountComponent/AccountHistory';
 
@@ -9,6 +9,7 @@ class AccountContainer extends Component {
   constructor(props) {
     super(props);
 
+    this.handleViewTransaction = this.handleViewTransaction.bind(this);
   }
 
   componentWillMount() {
@@ -18,13 +19,18 @@ class AccountContainer extends Component {
     fetchAllTransactions(token);
   }
 
+  handleViewTransaction(transaction) {
+    this.props.selectActiveTransaction(transaction);
+  }
+
   render() {
     const { account, history } = this.props;
     if(!history) return <div>Loading....</div>
     return (
       <section>
         <AccountInfo account={account[0]}/>
-        <AccountHistory history={history}/>
+        <AccountHistory history={history}
+                        handleViewTransaction={this.handleViewTransaction}/>
       </section>
     )
   }
@@ -39,7 +45,11 @@ function mapPropsToState(state) {
 }
 
 function matchDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchAllAccounts, fetchAllTransactions }, dispatch);
+  return bindActionCreators({
+    fetchAllAccounts,
+    fetchAllTransactions,
+    selectActiveTransaction
+  }, dispatch);
 }
 
 export default connect(mapPropsToState, matchDispatchToProps)(AccountContainer);
