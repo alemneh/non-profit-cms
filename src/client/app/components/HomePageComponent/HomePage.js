@@ -16,6 +16,9 @@ const HomePage = () => {
       <Link to="/add-remittance"
             className="btn btn-default btn-lg btn-block">Make Remittance
       </Link>
+      <Link to="/add-admin"
+            className="btn btn-default btn-lg btn-block">Create Admin
+      </Link>
     </section>
   )
 }

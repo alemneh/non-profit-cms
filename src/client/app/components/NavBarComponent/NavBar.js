@@ -9,27 +9,18 @@ const NavComponent = ({ token, handleLogout }) => {
       return (
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul className="nav navbar-nav">
-            <li className="active"><Link to="#">Home <span className="sr-only">(current)</span></Link></li>
-            <li><Link to="#">Members</Link></li>
-            <li><Link to="#">Account</Link></li>
+            <li className="active"><Link to="/">Home <span className="sr-only">(current)</span></Link></li>
+            <li><Link to="/members">Members</Link></li>
+            <li><Link to="/accounts-info">Account</Link></li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
-            <li><Link onClick={ handleLogout }>Logout</Link></li>
+            <li><Link to="/" onClick={ handleLogout }>Logout</Link></li>
           </ul>
         </div>
       )
     }
     return
-    // (
-    //   <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    //     <ul className="nav navbar-nav">
-    //       <li className="active"><Link to="/">Home <span className="sr-only">(current)</span></Link></li>
-    //     </ul>
-    //     <ul className="nav navbar-nav navbar-right">
-    //       <li><Link to="/login-form">Login</Link></li>
-    //     </ul>
-    //   </div>
-    // )
+
   }
 
 

@@ -24,16 +24,17 @@ const AccountHistory = ({ history, handleViewTransaction }) => {
           <tr>
             <th>Date: </th>
             <th>Amount: </th>
-            <th>Type: </th>
+            <th>Name: </th>
           </tr>
         </thead>
         <tbody>
-          { history.map((transAct, index) => {
+          { history.reverse().map((transAct, index) => {
             return (
               <tr key={index} onClick={() => {handleViewTransaction(transAct)}}>
                 <td>{Dateformatter(transAct.createdAt)}</td>
-                <td>{USDformatter.format(transAct.amount)}</td>
-                <td>{transAct.type}</td>
+                <td>{transAct.type === 'Payment' ? USDformatter.format(transAct.amount) :
+                                                   '- ' + (USDformatter.format(transAct.amount))}</td>
+                <td>{transAct.name}</td>
               </tr>
             )
           })}

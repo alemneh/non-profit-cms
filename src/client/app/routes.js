@@ -10,6 +10,7 @@ import ProfilePage from './containers/ProfileContainer/Profile';
 import AccountPage from './containers/AccountContainer/Account';
 import AddTransaction from './containers/AddTransactionContainer/AddTransaction';
 import AddRemittance from './containers/AddRemittanceContainer/AddRemittance';
+import AddAdmin from './containers/AddAdminContainer/AddAdmin';
 import TransactionInfo from './containers/TransactionInfoContainer/TransactionInfo';
 
 
@@ -21,6 +22,7 @@ const routes = (
     <Route path="/members" component={MemberPage} />
     <Route path="/members-list" component={MembersList} />
     <Route path="/add-member"  component={AddMemberPage} />
+    <Route path="/add-admin"  component={AddAdmin} />
     <Route path="/transaction-info" component={TransactionInfo} />
     <Route path="/profile"  component={ProfilePage} />
     <Route path="/accounts-info" component={AccountPage} />

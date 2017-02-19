@@ -33,3 +33,9 @@ export function addUser(newUser, token) {
       });
   };
 }
+
+export function logout() {
+  return {
+    type: types.LOGOUT
+  };
+}

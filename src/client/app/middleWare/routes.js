@@ -16,6 +16,8 @@ export default store => next => action => {
     browserHistory.push('/transaction-info');
   } else if (action.type === types.REMOVE_USER_FULFILLED) {
     browserHistory.push('/members-list');
+  } else if (action.type === types.MAKE_PAYMENT_FULFILLED) {
+    browserHistory.push('/');
   }
 
   next(action);

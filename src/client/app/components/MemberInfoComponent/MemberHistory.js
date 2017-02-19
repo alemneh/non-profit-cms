@@ -28,7 +28,7 @@ const MemberHistory = ({ payments, handleViewTransaction }) => {
           </tr>
         </thead>
         <tbody>
-          { payments.map((payment, index) => {
+          { payments.reverse().map((payment, index) => {
             return (
               <tr key={index} onClick={() => {handleViewTransaction(payment)} }>
                 <td>{Dateformatter(payment.createdAt)}</td>
