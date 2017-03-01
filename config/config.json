@@ -1,6 +1,6 @@
 {
   "development": {
-    "database": "mongodb://localhost/cms-non-profit",
+    "database": "mongodb://localhost/cms-non-profit-test",
     "host": "http://localhost:3000",
     "port": "3000"
   },
@@ -11,6 +11,6 @@
   },
   "production": {
     "database": "MONGO_URI",
-    "host": " https://book-swap-meet.herokuapp.com"
+    "host": " https://welkait-tegede.herokuapp.com"
   }
 }
