@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 
 
 const MemberInfoCompnent = ({ member, onEditClick, handleRemoveUser }) => {
-  console.log('Volunteer: ' + member.volunteer);
   return (
     <div>
       <h3>User Info</h3>

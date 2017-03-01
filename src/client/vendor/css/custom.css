@@ -1,0 +1,7 @@
+a.btn.btn-primary, button.btn.btn-default {
+  margin-right: 15px;
+}
+
+tr {
+  cursor: pointer;
+}
