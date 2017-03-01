@@ -1,7 +1,6 @@
 'use strict';
 const compression       = require('compression');
 const express           = require('express');
-const morgan            = require('morgan');
 const app               = express();
 const bodyParser        = require('body-parser');
 const models            = require('./models');
@@ -20,7 +19,6 @@ require('./controllers/login-controller')(loginRouter, models);
 require('./controllers/account-controller')(accountRouter, models);
 require('./controllers/transaction-controller')(transactionRouter, models);
 
-app.use(morgan('combined'));
 app.use(compression());
 app.use(express.static(__dirname + '/src/client'));
 
