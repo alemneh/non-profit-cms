@@ -50,12 +50,11 @@ export default function(state=initialState, action) {
       return {...state, fetching: false, error: action.payload}
     }
     case types.FETCH_USER_PAYMENTS_FULFILLED: {
-      const {dues, payments} = action.payload;
+      const {payments} = action.payload;
       return {
         ...state,
         fetching: false,
         fetched: true,
-        dues,
         payments
       }
     }
