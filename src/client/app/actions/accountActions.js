@@ -46,8 +46,8 @@ export function makeTransaction(transAct, token) {
   };
 }
 
-export function selectActiveTransaction(user) {
+export function selectActiveTransaction(transaction) {
   return function(dispatch) {
-    dispatch({type: types.SET_ACTIVE_TRANSACTION, payload: user});
+    dispatch({type: types.SET_ACTIVE_TRANSACTION, payload: transaction});
   };
 }

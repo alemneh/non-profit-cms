@@ -2,8 +2,8 @@ import * as types from '../ActionConstants';
 
 const initialState = {
   accounts: [],
-  fetching: null,
-  fetched: null,
+  fetching: false,
+  fetched: false,
   error: null,
   activeTransaction: null,
   transactions: []
@@ -45,7 +45,7 @@ export default function(state=initialState, action) {
     case types.MAKE_TRANSACTION_REJECTED: {
       return {...state, fetching: false, error: action.payload}
     }
-    case types.MAKE_TRANSACTION_REJECTED: {
+    case types.MAKE_TRANSACTION_FULFILLED: {
       const newTransactions = [...state.transactions].concat(action.payload);
       return {
         ...state,
