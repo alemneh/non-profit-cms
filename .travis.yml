@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- 4.3.1
+env:
+- CXX=g++-4.8
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
+deploy:
+  provider: heroku
+  app: non-profit-cms
+  api_key:
+    secure: dOrATAXXF4A83vNOH07ytEHyOEXggwoSB6P2hy2LKAhslUv6e7EYaWlrd4hQBK04vpDoEh+9k9QzculGkNHSbv8Zk/UV5cvEjcoPTytdZxt7T6MjQpfp8mTH9nOKuN03T/T8TSW4yhbgI3lo0Fw/KtZ5T6UnIPly+kOF7qY1d1JTHvALKFfq8iC2moS+bZS+4QUP9rHZm6KYWW2i0dVhjZSNdKudU1cHixLkWZflugaA56/DxI8xY/TzvD0/3btEWfjGBVOHpUD1SqkroaO61ov3jXn22VJz6/TtcSj64Ud1Z7XzGd0mdv9iXa/fEaetYWxKzAZlgZgOsiTdaYJpdZZcgBxn6Mj7zF8dN/mEzVjSajdCdtCZxvZdW3a5hMRp4c3SchV0OEJAM3ZGNHiFdQlEwSSU71RACeKz/u/MuBVIOZWo7f/KqEWg5SXluU3VpRooDqdYLKKRpDd5VhkRmgHyZoqAZgFxc3Os61gPGTQlbqbJfJk+RyC7ajudeZH9rpOMUoQCUr9W/kiS/cO6ItMYm4cXOeSDBlpkxdQrC+moWNsw1aRsN4ujhTIB4Y6LgtHLHZ3tHv9mitPnTYznTub+yPzMo9inmPb0BXXwe3lZ7TC0RAqFYHjuWQgtRxgsRdXMOPpoIcuw/seXGcCIYg3xhBmreA7xyYGjBf2shho=
