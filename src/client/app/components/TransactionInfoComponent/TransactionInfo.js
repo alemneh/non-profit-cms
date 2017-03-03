@@ -30,4 +30,8 @@ const TransactionInfoCompnent = ({ transaction }) => {
   )
 }
 
+TransactionInfoCompnent.propTypes = {
+  transaction: PropTypes.object.isRequired
+}
+
 export default TransactionInfoCompnent;

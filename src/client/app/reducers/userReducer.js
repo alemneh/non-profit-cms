@@ -125,6 +125,9 @@ export default function(state=initialState, action) {
     case types.SET_EDITING_MODE: {
       return {...state, isEditing: true}
     }
+    case types.CLEAR_EDITING_MODE: {
+      return {...state, isEditing: false}
+    }
     case types.LOGOUT:{
      return initialState
    }

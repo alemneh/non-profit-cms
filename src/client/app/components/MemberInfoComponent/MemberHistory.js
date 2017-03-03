@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const MemberHistory = ({ payments, handleViewTransaction }) => {
 
@@ -40,6 +40,11 @@ const MemberHistory = ({ payments, handleViewTransaction }) => {
       </table>
     </div>
   )
+}
+
+MemberHistory.propTypes = {
+  payments: PropTypes.array.isRequired,
+  handleViewTransaction: PropTypes.func.isRequired,
 }
 
 export default MemberHistory;

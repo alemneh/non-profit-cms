@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { editBtnClicked, updateUserInfo, removeUser, fetchUserPayments } from '../../actions/userActions';
+import { editBtnClicked, updateUserInfo, removeUser, fetchUserPayments, cancelEditBtnClicked } from '../../actions/userActions';
 import { selectActiveTransaction } from '../../actions/accountActions';
 import MemberInfo from '../../components/MemberInfoComponent/MemberInfo';
 import MemberEdit from '../../components/MemberEditComponent/MemberEdit';
@@ -57,18 +57,20 @@ class ProfileContainer extends Component {
   }
 
   renderMemberInfo() {
-    const { isEditing, editBtnClicked, member } = this.props;
+    const { isEditing, editBtnClicked, member, cancelEditBtnClicked } = this.props;
     if(isEditing) {
       return (
         <MemberEdit member={this.state.member}
                     handleInputChange={this.handleInputChange}
-                    handleUpdateMember={this.handleUpdateMember}/>
+                    handleUpdateMember={this.handleUpdateMember}
+                    cancelEditBtnClicked={cancelEditBtnClicked}/>
       )
     }
     return (
       <MemberInfo member={member}
                   handleRemoveUser={this.handleRemoveUser}
-                  onEditClick={editBtnClicked}/>
+                  onEditClick={editBtnClicked}
+                  />
     )
   }
 
@@ -100,7 +102,8 @@ function matchDispatchToProps(dispatch) {
     updateUserInfo,
     removeUser,
     fetchUserPayments,
-    selectActiveTransaction
+    selectActiveTransaction,
+    cancelEditBtnClicked
   }, dispatch);
 }
 

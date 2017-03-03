@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+import { currencyUSD, date } from '../../lib/formatter';
 
 const AccountHistory = ({ history, handleViewTransaction }) => {
 
@@ -18,9 +19,9 @@ const AccountHistory = ({ history, handleViewTransaction }) => {
           { history.reverse().map((transAct, index) => {
             return (
               <tr key={index} onClick={() => {handleViewTransaction(transAct)}}>
-                <td>{transAct.createdAt}</td>
-                <td>{(transAct.type === 'Payment') ? transAct.amount :
-                                                   '- ' + (transAct.amount)}</td>
+                <td>{date(transAct.createdAt)}</td>
+                <td>{(transAct.type === 'Payment') ? currencyUSD.format(transAct.amount) :
+                                                   '- ' + (currencyUSD.format(transAct.amount))}</td>
                 <td>{transAct.name}</td>
               </tr>
             )
@@ -31,4 +32,8 @@ const AccountHistory = ({ history, handleViewTransaction }) => {
   )
 }
 
+AccountHistory.propTypes = {
+  history: PropTypes.array.isRequired,
+  handleViewTransaction: PropTypes.func.isRequired,
+}
 export default AccountHistory;

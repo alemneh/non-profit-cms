@@ -23,4 +23,11 @@ const MemberInfoCompnent = ({ member, onEditClick, handleRemoveUser }) => {
   )
 }
 
+MemberInfoCompnent.propTypes = {
+  member: PropTypes.object.isRequired,
+  handleRemoveUser: PropTypes.func.isRequired,
+  onEditClick: PropTypes.func.isRequired
+}
+
+
 export default MemberInfoCompnent;

@@ -120,3 +120,10 @@ export function editBtnClicked() {
     dispatch({type: types.SET_EDITING_MODE});
   };
 }
+
+export function cancelEditBtnClicked() {
+  console.log('clicked');
+  return function(dispatch) {
+    dispatch({type: types.CLEAR_EDITING_MODE});
+  };
+}

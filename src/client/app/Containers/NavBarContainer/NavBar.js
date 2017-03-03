@@ -18,7 +18,6 @@ class NavBarContainer extends Component {
     if(!token) {
       browserHistory.push('/login-form');
     }
-    fetchUsers(token);
   }
 
   handleLogout(e) {

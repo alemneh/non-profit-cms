@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { makeTransaction } from '../../actions/accountActions';
+import { fetchUsers } from '../../actions/userActions';
 import AddTransactionComponent from '../../components/AddTransactionComponent/AddTransaction';
-console.log(makeTransaction);
+
 class AddTransactionContainer extends Component {
   constructor(props) {
     super(props);
@@ -18,6 +19,11 @@ class AddTransactionContainer extends Component {
 
     this.handleAddTransaction = this.handleAddTransaction.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  componentWillMount() {
+    const { token, fetchUsers } = this.props;
+    fetchUsers(token);
   }
 
 
@@ -66,7 +72,7 @@ function mapPropsToState(state) {
 
 
 function matchDispatchToProps(dispatch) {
-  return bindActionCreators({ makeTransaction}, dispatch);
+  return bindActionCreators({ makeTransaction, fetchUsers}, dispatch);
 }
 
 export default connect(mapPropsToState, matchDispatchToProps)(AddTransactionContainer);
