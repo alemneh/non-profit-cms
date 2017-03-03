@@ -10,7 +10,7 @@ let wrapper, Props;
 const props = {
   account: {},
   history: [],
-  handleViewTransaction: {}
+  handleViewTransaction: () => {}
 };
 
 describe('<AccountComponent />', () => {
@@ -51,7 +51,7 @@ describe('<AccountComponent />', () => {
     it('should have an object prop handleViewTransaction', () => {
       const { handleViewTransaction } = Props;
       expect(handleViewTransaction).to.be.defiend;
-      expect(handleViewTransaction).to.be.an('Object');
+      expect(handleViewTransaction).to.be.a('Function');
     });
   });
 })
