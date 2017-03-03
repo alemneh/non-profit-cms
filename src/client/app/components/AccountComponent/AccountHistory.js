@@ -1,19 +1,6 @@
 import React from 'react';
 
 const AccountHistory = ({ history, handleViewTransaction }) => {
-  const  USDformatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 2
-  })
-
-  const Dateformatter = (date) => {
-    let dateArray = date.slice(0,10).split('-');
-    const y = dateArray[0],
-          m = dateArray[1],
-          d = dateArray[2];
-    return m + '/' + d + '/' + y;
-  }
 
   return (
     <div>
@@ -31,9 +18,9 @@ const AccountHistory = ({ history, handleViewTransaction }) => {
           { history.reverse().map((transAct, index) => {
             return (
               <tr key={index} onClick={() => {handleViewTransaction(transAct)}}>
-                <td>{Dateformatter(transAct.createdAt)}</td>
-                <td>{transAct.type === 'Payment' ? USDformatter.format(transAct.amount) :
-                                                   '- ' + (USDformatter.format(transAct.amount))}</td>
+                <td>{transAct.createdAt}</td>
+                <td>{(transAct.type === 'Payment') ? transAct.amount :
+                                                   '- ' + (transAct.amount)}</td>
                 <td>{transAct.name}</td>
               </tr>
             )
