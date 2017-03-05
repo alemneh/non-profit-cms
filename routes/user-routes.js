@@ -13,6 +13,7 @@ let UserRoutes = {
       if(!user) {
         var newUser = new User(req.body);
         newUser.save((err, user) => {
+          if(err) throw err;
           res.json({
             data: user,
             token: user.admin ? user.generateToken() : null
