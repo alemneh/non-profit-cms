@@ -28,6 +28,10 @@ class AddMemberContainer extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
+  handleCancelBtnClick() {
+    browserHistory.push('/');
+  }
+
   handleInputChange(e) {
 
     let key = e.target.name;
@@ -49,6 +53,7 @@ class AddMemberContainer extends Component {
     return (
       <section>
         <AddMemberComponent handleInputChange={this.handleInputChange}
+                            handleCancelBtnClick={ this.handleCancelBtnClick}
                             handleAddMember={this.handleAddMember}/>
       </section>
     )

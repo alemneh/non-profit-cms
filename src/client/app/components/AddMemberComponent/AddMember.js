@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 
-const AddMemberComponent = ({ handleAddMember, handleInputChange }) => {
+const AddMemberComponent = ({ handleAddMember, handleInputChange, handleCancelBtnClick }) => {
 
   return (
     <form onSubmit={ handleAddMember } className="form-horizontal">
@@ -84,7 +84,7 @@ const AddMemberComponent = ({ handleAddMember, handleInputChange }) => {
         </div>
         <div className="form-group">
           <div className="col-lg-10 col-lg-offset-2">
-            <button type="reset" className="btn btn-default">Cancel</button>
+            <button onClick={ handleCancelBtnClick } type="reset" className="btn btn-default">Cancel</button>
             <button type="submit" className="btn btn-primary">Submit</button>
           </div>
         </div>

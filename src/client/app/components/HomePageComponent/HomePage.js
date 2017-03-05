@@ -10,7 +10,7 @@ const HomePage = () => {
       <Link to="/add-payment"
             className="btn btn-default btn-lg btn-block">Make Payment
       </Link>
-      <Link to="/accounts-info"
+      <Link to="/accounts-page"
             className="btn btn-default btn-lg btn-block">Account
       </Link>
       <Link to="/add-admin"
@@ -18,6 +18,9 @@ const HomePage = () => {
       </Link>
       <Link to="/add-remittance"
             className="btn btn-default btn-lg btn-block">Make Remittance
+      </Link>
+      <Link to="/reset-password"
+            className="btn btn-default btn-lg btn-block">Reset Password
       </Link>
     </section>
   )

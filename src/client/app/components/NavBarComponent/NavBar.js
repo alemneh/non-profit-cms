@@ -11,7 +11,7 @@ const NavComponent = ({ token, handleLogout }) => {
           <ul className="nav navbar-nav">
             <li className="active"><Link to="/">Home <span className="sr-only">(current)</span></Link></li>
             <li><Link to="/members">Members</Link></li>
-            <li><Link to="/accounts-info">Account</Link></li>
+            <li><Link to="/accounts-page">Account</Link></li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
             <li><Link to="/" onClick={ handleLogout }>Logout</Link></li>

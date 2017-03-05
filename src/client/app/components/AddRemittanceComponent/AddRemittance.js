@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 
-const AddRemittanceComponent = ({ handleAddRemittance, handleInputChange, members }) => {
+const AddRemittanceComponent = ({ handleAddRemittance, handleInputChange, members, handleCancelBtnClick }) => {
 
   return (
     <form onSubmit={ handleAddRemittance } className="form-horizontal">
@@ -20,8 +20,15 @@ const AddRemittanceComponent = ({ handleAddRemittance, handleInputChange, member
           </div>
         </div>
         <div className="form-group">
+          <label for="textArea" className="col-lg-2 control-label">Notes</label>
+          <div className="col-lg-10">
+            <textarea onClick={ handleInputChange } className="form-control" rows="3" id="textAreaRemittance" name="notes"></textarea>
+            <span className="help-block">Enter any notes to help exlain this transation.</span>
+          </div>
+        </div>
+        <div className="form-group">
           <div className="col-lg-10 col-lg-offset-2">
-            <button type="reset" className="btn btn-default">Cancel</button>
+            <button onClick={ handleCancelBtnClick } type="reset" className="btn btn-default">Cancel</button>
             <button type="submit" className="btn btn-primary">Submit</button>
           </div>
         </div>

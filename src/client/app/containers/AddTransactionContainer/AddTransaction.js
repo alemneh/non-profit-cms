@@ -44,6 +44,7 @@ class AddTransactionContainer extends Component {
     const { token, admin, makeTransaction} = this.props;
     let transaction = this.state.transaction;
     transaction.createdBy = admin.name;
+    transaction.notes = window.document.getElementById('textAreaTransaction').value;
     console.log(this.state.transaction);
 
     makeTransaction(transaction, token);

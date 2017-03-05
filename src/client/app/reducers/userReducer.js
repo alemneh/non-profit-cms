@@ -119,6 +119,15 @@ export default function(state=initialState, action) {
         activeUser: action.payload
       }
     }
+    case types.UPDATE_ADMIN: {
+      return {...state}
+    }
+    case types.UPDATE_ADMIN_REJECTED: {
+      return {...state, error: action.payload}
+    }
+    case types.UPDATE_ADMIN_FULFILLED: {
+      return {...state}
+    }
     case types.SET_ACTIVE_USER: {
       return {...state, activeUser: action.payload}
     }

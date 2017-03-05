@@ -1,7 +1,12 @@
 import React, { PropTypes } from 'react';
 
 
-const AddTransactionComponent = ({ handleAddTransaction, handleInputChange, members }) => {
+const AddTransactionComponent = ({
+  handleAddTransaction,
+  handleInputChange,
+  members,
+  handleCancelBtnClick
+ }) => {
 
   return (
     <form onSubmit={ handleAddTransaction } className="form-horizontal">
@@ -26,8 +31,15 @@ const AddTransactionComponent = ({ handleAddTransaction, handleInputChange, memb
           </div>
         </div>
         <div className="form-group">
+          <label for="textArea" className="col-lg-2 control-label">Notes</label>
+          <div className="col-lg-10">
+            <textarea onClick={ handleInputChange } name="notes" className="form-control" rows="3" id="textAreaTransaction"></textarea>
+            <span className="help-block">Enter any notes to help exlain this transation.</span>
+          </div>
+        </div>
+        <div className="form-group">
           <div className="col-lg-10 col-lg-offset-2">
-            <button type="reset" className="btn btn-default">Cancel</button>
+            <button onClick={ handleCancelBtnClick } type="reset" className="btn btn-default">Cancel</button>
             <button type="submit" className="btn btn-primary">Submit</button>
           </div>
         </div>

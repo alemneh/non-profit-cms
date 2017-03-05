@@ -109,6 +109,21 @@ export function updateUserInfo(updatedUser, token) {
   };
 }
 
+export function updateAdmin(admin, token) {
+  return function(dispatch) {
+    dispatch({ type: types.UPDATE_ADMIN });
+    axios.post(process.env.URL + '/reset-password/' + admin._id, {password: admin.password}, {
+      headers: { 'token': token }
+    })
+    .then((res) => {
+      dispatch({type: types.UPDATE_ADMIN_FULFILLED, payload: res.data.message });
+    })
+    .catch((err) => {
+      dispatch({type: types.UPDATE_ADMIN_REJECTED, payload: err });
+    });
+  };
+}
+
 export function selectActiveUser(user) {
   return function(dispatch) {
     dispatch({type: types.SET_ACTIVE_USER, payload: user});

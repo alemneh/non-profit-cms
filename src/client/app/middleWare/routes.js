@@ -18,6 +18,8 @@ export default store => next => action => {
     browserHistory.push('/members-list');
   } else if (action.type === types.MAKE_PAYMENT_FULFILLED) {
     browserHistory.push('/');
+  } else if (action.type === types.UPDATE_ADMIN_FULFILLED) {
+    browserHistory.push('/');
   }
 
   next(action);

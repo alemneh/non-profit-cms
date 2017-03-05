@@ -55,6 +55,21 @@ let UserRoutes = {
     });
   },
 
+  updateAdmin: function(req, res) {
+    User.findById(req.params.id, (err, user) => {
+      if(err) throw err;
+      console.log(req.body);
+
+      user.password = req.body.password;
+      user.hookEnabled = true;
+      user.save((err, updatedUser) => {
+        if(err) throw err;
+
+        res.json({message: 'Password Updated'});
+      });
+    })
+  },
+
 
   getAllUserPayments: function(req, res) {
     User.findById(req.params.id)

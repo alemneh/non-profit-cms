@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { makeTransaction } from '../../actions/accountActions';
@@ -20,6 +21,19 @@ class AddRemittanceContainer extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
+  componentWillMount() {
+    const { admin } = this.props;
+    if(!admin.isBoss) {
+      if(!admin.isTreasure) {
+        browserHistory.push('/')
+      }
+    }
+  }
+
+
+  handleCancelBtnClick() {
+    browserHistory.push('/');
+  }
 
 
   handleInputChange(e) {
@@ -37,6 +51,7 @@ class AddRemittanceContainer extends Component {
     const { token, makeTransaction, admin} = this.props;
     let transaction = this.state.transaction;
     transaction.createdBy = admin.name;
+    transaction.notes = window.document.getElementById('textAreaRemittance').value;
     console.log(transaction);
     makeTransaction(transaction, token);
   }
@@ -46,6 +61,7 @@ class AddRemittanceContainer extends Component {
       <section>
         <AddRemittanceComponent
                             handleInputChange={this.handleInputChange}
+                            handleCancelBtnClick={ this.handleCancelBtnClick}
                             handleAddRemittance={this.handleAddRemittance}
                             members={this.props.members}
                           />

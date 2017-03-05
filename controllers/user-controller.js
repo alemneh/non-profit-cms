@@ -20,7 +20,8 @@ module.exports = (userRouter, models) => {
   userRouter.route('/users/:id/payments')
     .get(jwtAuth, (req, res)   => {UserRoutes.getAllUserPayments(req, res); });
 
-
+  userRouter.route('/reset-password/:id')
+    .post(jwtAuth, (req, res) => {UserRoutes.updateAdmin(req,res); });
 
 
 };

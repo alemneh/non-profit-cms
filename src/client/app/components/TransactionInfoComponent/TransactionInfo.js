@@ -26,6 +26,7 @@ const TransactionInfoCompnent = ({ transaction }) => {
       <p><b>Amount: </b> {USDformatter.format(transaction.amount)} </p>
       <p><b>Date: </b>  {Dateformatter(transaction.createdAt)} </p>
       <p><b>Creatd By: </b> {transaction.createdBy} </p>
+      <p><b>Notes: </b> {transaction.notes}</p>
     </div>
   )
 }

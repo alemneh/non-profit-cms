@@ -28,6 +28,9 @@ class AddAdminContainer extends Component {
   }
 
 
+  handleCancelBtnClick() {
+    browserHistory.push('/');
+  }
 
   handleInputChange(e) {
 
@@ -55,6 +58,7 @@ class AddAdminContainer extends Component {
       <section>
         <AddAdminComponent
                             handleInputChange={this.handleInputChange}
+                            handleCancelBtnClick={ this.handleCancelBtnClick}
                             handleAddAdmin={this.handleAddAdmin}
                           />
       </section>

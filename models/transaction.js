@@ -4,6 +4,7 @@ module.exports = (mongoose, models) => {
   let transactionSchema = new mongoose.Schema({
     _owner: [{type: String, ref: 'User'}],
     amount: {type:Number, default: 15},
+    notes: String,
     type: String,
     name: String,
     createdBy: String
