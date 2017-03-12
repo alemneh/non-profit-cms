@@ -61,7 +61,7 @@ class AddMemberContainer extends Component {
 }
 
 function validateInput() {
-  
+  console.log('hi');
 }
 
 function mapPropsToState(state) {
