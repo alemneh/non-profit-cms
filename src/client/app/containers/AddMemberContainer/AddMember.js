@@ -60,6 +60,10 @@ class AddMemberContainer extends Component {
   }
 }
 
+function validateInput() {
+  
+}
+
 function mapPropsToState(state) {
   return {
     token: state.login.token
